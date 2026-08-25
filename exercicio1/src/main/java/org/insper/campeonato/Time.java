@@ -5,7 +5,7 @@ public class Time {
     private String nome;
     private String cidade;
     private ArrayList<Jogador> jogadores;
-    int pontuacao = 0;
+    private int pontuacao = 0;
 
     public Time(String nome, String cidade, ArrayList<Jogador> jogadores){
         this.nome = nome;
@@ -25,5 +25,16 @@ public class Time {
     }
     public ArrayList<Jogador> listarJogadores() {
         return this.jogadores;
+    }
+    public int getPontuacao(){
+        return this.pontuacao;
+    }
+    public void setPontuacao(int pontos){
+        if (pontos < 0){
+            System.out.println("Você não pode reduzir a pontuação!");
+        }
+        else {
+            this.pontuacao += pontos;
+        }
     }
 }

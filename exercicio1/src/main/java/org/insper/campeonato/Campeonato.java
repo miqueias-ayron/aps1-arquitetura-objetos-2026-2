@@ -1,6 +1,10 @@
 package org.insper.campeonato;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.LinkedHashMap;
+import java.util.stream.Collectors;
 
 public class Campeonato {
     private String nome;
@@ -40,7 +44,22 @@ public class Campeonato {
         return null;
     }
 
-    public ArrayList<String> exibirClassificacao(){
-        return;
+    public Map<String, Integer> exibirClassificacao(){
+        Map<String, Integer> classificacao = new HashMap<>();
+
+        for (Time time : this.times) {
+            classificacao.put(time.getNome(), time.getPontuacao());
+        }
+
+        Map<String, Integer> classificacaoOrdenada = classificacao.entrySet()
+                .stream()
+                .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (valorExistente, novoValor) -> valorExistente,
+                        LinkedHashMap::new
+                ));
+        return classificacaoOrdenada;
     }
 }
