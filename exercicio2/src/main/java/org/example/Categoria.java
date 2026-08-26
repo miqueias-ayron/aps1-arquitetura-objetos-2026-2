@@ -13,6 +13,10 @@ public class Categoria {
         this.produtos = produtos;
     }
 
+    public String getNome(){
+        return this.nome;
+    }
+
     public void adicionarProduto(Produto produto){
         this.produtos.add(produto);
     }

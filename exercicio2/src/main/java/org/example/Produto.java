@@ -20,4 +20,20 @@ public class Produto {
     public void aumentarPreco(double percentual){
         System.out.println("NOVO PRECO " + this.preco*(1 + percentual/100));
     }
+
+    public int getCodigo(){
+        return this.codigo;
+    }
+
+    public String getNome(){
+        return this.nome;
+    }
+
+    public Categoria getCategoria(){
+        return this.categoria;
+    }
+
+    public double getPreco(){
+        return this.preco;
+    }
 }
