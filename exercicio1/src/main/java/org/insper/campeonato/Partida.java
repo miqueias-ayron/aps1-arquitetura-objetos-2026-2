@@ -1,6 +1,8 @@
 package org.insper.campeonato;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Partida {
     private LocalDate data;
@@ -8,12 +10,14 @@ public class Partida {
     private Time timeVisitante;
     private Integer golsMandante;
     private Integer golsVisitante;
-    private ArrayList<Cartao> cartoes;
+    private Map<String, Cartao> cartoes = new HashMap<>();
     Campeonato campeonato;
 
     public Partida(LocalDate data, Campeonato campeonato){
         this.data = data;
         this.campeonato = campeonato;
+        this.golsMandante = 0;
+        this.golsVisitante = 0;
     }
     public void registrarTimes(Time timeMandante, Time timeVisitante){
         this.timeMandante = timeMandante;
@@ -23,8 +27,16 @@ public class Partida {
         this.golsMandante = golMandante;
         this.golsVisitante = golVisitante;
     }
-    public void registrarCartao(Cartao cartao){
-        this.cartoes.add(cartao);
+    public void registrarGol(Jogador jogador){
+        jogador.marcarGol();
+        if (jogador.getTime().getNome().equals(this.timeMandante.getNome())){
+            this.golsMandante++;
+        } else {
+            this.golsVisitante++;
+        }
+    }
+    public void registrarCartao(Jogador jogador, Cartao cartao){
+        cartoes.put(jogador.getNome(), cartao);
     }
 
     public Time buscarVencedor(){

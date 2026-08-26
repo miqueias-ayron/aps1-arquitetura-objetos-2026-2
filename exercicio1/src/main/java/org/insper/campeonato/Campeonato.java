@@ -12,7 +12,7 @@ public class Campeonato {
     private ArrayList<Time> times;
     private ArrayList<Partida> partidas;
 
-    public void Campeonato(String nome, int ano, ArrayList<Time> times, ArrayList<Partida> partidas){
+    public Campeonato(String nome, int ano, ArrayList<Time> times, ArrayList<Partida> partidas){
         this.nome = nome;
         this.ano = ano;
         this.times = times;
@@ -37,7 +37,7 @@ public class Campeonato {
 
     public Time buscarTime(String nome){
         for (Time time: times){
-            if (time.equals(time)) {
+            if (time.getNome().equals(nome)) {
                 return time;
             }
         }

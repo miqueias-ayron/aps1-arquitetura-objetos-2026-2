@@ -5,6 +5,7 @@ public class Jogador {
     private Integer numero;
     private String posicao;
     private Time time;
+    private int gols = 0;
 
     public Jogador(String nome, Integer numero, String posicao, Time time){
         this.nome = nome;
@@ -15,5 +16,17 @@ public class Jogador {
 
     public String getNome(){
         return this.nome;
+    }
+
+    public Time getTime(){
+        return this.time;
+    }
+
+    public int getGols(){
+        return this.gols;
+    }
+
+    public void marcarGol(){
+        this.gols++;
     }
 }
