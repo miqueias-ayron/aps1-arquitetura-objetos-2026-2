@@ -23,7 +23,7 @@ public class Loja {
 
     public Produto buscarProduto(int codigo){
         for (Produto produto: this.produtos){
-            if (produto.codigo == codigo){
+            if (produto.getCodigo() == codigo){
                 return produto;
             }
         }
@@ -32,7 +32,7 @@ public class Loja {
 
     public Cliente buscarCliente(String cpf){
         for (Cliente cliente: this.clientes){
-            if (cliente.cpf == cpf){
+            if (cliente.getCPF().equals(cpf)){
                 return cliente;
             }
         }
@@ -41,13 +41,13 @@ public class Loja {
 
     public void listarProdutos(){
         for (Produto produto: this.produtos){
-            System.out.println(produto.nome);
+            System.out.println(produto.getNome());
         }
     }
 
     public void listarProdutosPorCategoria(Categoria categoria){
         for (Produto produto: this.produtos){
-            if (produto.categoria.equals(categoria)){
+            if (produto.getCategoria().getNome().equals(categoria.getNome()){
                 System.out.println(categoria);
             }
         }
