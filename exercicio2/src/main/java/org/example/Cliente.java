@@ -15,6 +15,10 @@ public class Cliente {
         this.pedidos = pedidos;
     }
 
+    public String getNome(){
+        return this.nome;
+    }
+
     public String getCPF(){
         return this.cpf;
     }
@@ -25,28 +29,28 @@ public class Cliente {
 
     public void listarPedidos(){
         for (Pedido pedido: this.pedidos){
-            System.out.println(pedido.getNome());
+            System.out.println(pedido.getNumeroPedido());
         }
     }
 
     public Double calcularTotalGasto(){
         double gasto = 0;
         for (Pedido pedido: this.pedidos){
-            gasto += pedido.getPreco();
+            gasto += pedido.calcularTotal();
         }
         return gasto;
     }
 
-    public String buscarPedidoMaisCaro(){
+    public int buscarPedidoMaisCaro(){
         double valorMaisCaro = 0;
-        String nomePedidoMaisCaro = "";
+        int numeroPedidoMaisCaro = 0;
         for (Pedido pedido: this.pedidos){
-            if (pedido.getPreco() > valorMaisCaro){
-                valorMaisCaro = pedido.getPreco();
-                nomePedidoMaisCaro = pedido.getNome();
+            if (pedido.calcularTotal() > valorMaisCaro){
+                valorMaisCaro = pedido.calcularTotal();
+                numeroPedidoMaisCaro = pedido.getNumeroPedido();
             }
         }
-        return nomePedidoMaisCaro;
+        return numeroPedidoMaisCaro;
     }
 
 }

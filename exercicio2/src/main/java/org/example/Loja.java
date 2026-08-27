@@ -48,7 +48,7 @@ public class Loja {
     public void listarProdutosPorCategoria(Categoria categoria){
         for (Produto produto: this.produtos){
             if (produto.getCategoria().getNome().equals(categoria.getNome())){
-                System.out.println(categoria);
+                System.out.println(produto.getNome());
             }
         }
     }

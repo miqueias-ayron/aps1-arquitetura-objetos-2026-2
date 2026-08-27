@@ -14,11 +14,13 @@ public class Produto {
     }
 
     public void aplicarDesconto(double percentual){
-        System.out.println("PRECO COM DESCONTO " + this.preco*(1 - percentual/100));
+        this.preco = this.preco*(1 - percentual/100);
+        System.out.println("PRECO COM DESCONTO " + this.preco);
     }
 
     public void aumentarPreco(double percentual){
-        System.out.println("NOVO PRECO " + this.preco*(1 + percentual/100));
+        this.preco = this.preco*(1 + percentual/100);
+        System.out.println("NOVO PRECO " + this.preco);
     }
 
     public int getCodigo(){
